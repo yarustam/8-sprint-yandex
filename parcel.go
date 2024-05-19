@@ -22,11 +22,13 @@ func (s ParcelStore) Add(p Parcel) (int, error) {
 	}
 
 	id, err := res.LastInsertId()
+	
 	if err != nil {
 		return 0, err
 	}
+	
 	// верните идентификатор последней добавленной записи
-	return 0, nil
+	return int(id), nil
 }
 
 func (s ParcelStore) Get(number int) (Parcel, error) {
